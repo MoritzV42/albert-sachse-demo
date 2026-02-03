@@ -1122,6 +1122,97 @@
             margin-bottom: 1.5rem;
         }
 
+        /* ============ LEGAL MODAL (Impressum/Datenschutz) ============ */
+        .legal-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .legal-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .legal-content {
+            background: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(30px);
+            transition: transform 0.3s;
+        }
+
+        .legal-modal.active .legal-content {
+            transform: translateY(0);
+        }
+
+        .legal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1;
+        }
+
+        .legal-header h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+        }
+
+        .legal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .legal-body {
+            padding: 2rem;
+        }
+
+        .legal-body h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .legal-body h4:first-child {
+            margin-top: 0;
+        }
+
+        .legal-body p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .legal-body .contact-box {
+            background: var(--bg-cream);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        .legal-body .contact-box p {
+            margin-bottom: 0.5rem;
+        }
+
         /* ============ USP SECTION ============ */
         .usp {
             padding: 6rem 2rem;
@@ -2649,8 +2740,8 @@
                 <ul class="footer-links">
                     <li><a href="#ueber-uns">Über uns</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
-                    <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#" onclick="openImpressum(); return false;">Impressum</a></li>
+                    <li><a href="#" onclick="openImpressum(); return false;">Datenschutz</a></li>
                 </ul>
             </div>
             <div>
@@ -2681,6 +2772,53 @@
                 Interesse an einer professionellen Website für Ihr Unternehmen?
                 <a href="https://wa.me/4915221380878" style="color: #1e40af; font-weight: 600;">Kontaktieren Sie uns!</a>
             </p>
+        </div>
+    </div>
+
+    <!-- Impressum Modal -->
+    <div class="legal-modal" id="impressum-modal">
+        <div class="legal-content">
+            <div class="legal-header">
+                <h3><i class="fas fa-gavel"></i> Impressum</h3>
+                <button class="legal-close" onclick="closeImpressum()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="legal-body">
+                <h4>Angaben gemäß § 5 TMG</h4>
+                <div class="contact-box">
+                    <p><strong>Albert Sachse GmbH</strong></p>
+                    <p>Kisten- und Behälterbau, Holzhandlung</p>
+                    <p>Klosterlausnitzer Str. 35</p>
+                    <p>07586 Kraftsdorf</p>
+                </div>
+
+                <h4>Geschäftsführer</h4>
+                <p>Andre Geilert</p>
+
+                <h4>Kontakt</h4>
+                <div class="contact-box">
+                    <p><i class="fas fa-phone"></i> Tel: 036606 - 84219</p>
+                    <p><i class="fas fa-fax"></i> Fax: 036606 - 63248</p>
+                    <p><i class="fas fa-envelope"></i> E-Mail: albert-sachse-gmbh@t-online.de</p>
+                </div>
+
+                <h4>Steuernummern</h4>
+                <p>SteuerNr.: 161/105/00002<br>Ust-Id-Nr.: DE150509373</p>
+
+                <h4>1. Inhalte des Onlineangebotes</h4>
+                <p>Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit und/oder Qualität der bereitgestellten Informationen. Haftungsansprüche gegen den Autor, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Autors kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.</p>
+
+                <h4>2. Verweise und Links</h4>
+                <p>Bei direkten oder indirekten Verweisen auf fremde Internetseiten (Links), die außerhalb des Verantwortungsbereiches des Autors liegen, würde eine Haftungsverpflichtung ausschließlich in dem Falle in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern. Der Autor erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren.</p>
+
+                <h4>3. Urheber- und Kennzeichenrecht</h4>
+                <p>Der Autor ist bestrebt, in allen Publikationen die Urheberrechte von verwendeten Grafiken, Tondokumenten, Videosequenzen und Texten zu beachten. Das Copyright für veröffentlichte, vom Autor selbst erstellte Objekte bleibt allein beim Autor der Seite. Eine Vervielfältigung oder Verwendung solcher Grafiken, Tondokumente, Videosequenzen und Texte in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung des Autors nicht gestattet.</p>
+
+                <h4>4. Datenschutz</h4>
+                <p>Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten besteht, erfolgt die Preisgabe dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis.</p>
+
+                <h4>5. Rechtswirksamkeit</h4>
+                <p>Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.</p>
+            </div>
         </div>
     </div>
 
@@ -3064,6 +3202,20 @@
             document.getElementById('checkout-modal').classList.remove('active');
         }
 
+        // ============ IMPRESSUM MODAL ============
+        function openImpressum() {
+            document.getElementById('impressum-modal').classList.add('active');
+        }
+
+        function closeImpressum() {
+            document.getElementById('impressum-modal').classList.remove('active');
+        }
+
+        // Click außerhalb schließt Modal
+        document.getElementById('impressum-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeImpressum();
+        });
+
         function submitCheckout(event) {
             event.preventDefault();
             const form = event.target;
@@ -3100,6 +3252,7 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeCheckout();
+                closeImpressum();
                 if (document.getElementById('cart-sidebar').classList.contains('active')) {
                     toggleCart();
                 }
