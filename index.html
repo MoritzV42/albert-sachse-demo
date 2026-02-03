@@ -175,6 +175,210 @@
             color: var(--primary);
         }
 
+        /* Warenkorb Button */
+        .cart-btn {
+            position: relative;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 0.5rem;
+            margin-left: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .cart-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-badge:empty, .cart-badge[data-count="0"] {
+            display: none;
+        }
+
+        /* Warenkorb Sidebar */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            max-width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 2001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-light);
+        }
+
+        .cart-empty i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .cart-item {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .cart-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 1rem;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.25rem;
+        }
+
+        .cart-item-details {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .cart-item-details span {
+            display: block;
+        }
+
+        .cart-item-price {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #ddd;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            background: var(--bg);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .cart-total-label {
+            color: var(--text-light);
+        }
+
+        .cart-total-value {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .cart-checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cart-checkout-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .cart-checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
         /* ============ HERO ============ */
         .hero {
             min-height: 100vh;
@@ -585,6 +789,339 @@
             font-size: 0.7rem;
         }
 
+        /* ============ KONFIGURATOR SECTION ============ */
+        .konfigurator {
+            padding: 6rem 2rem;
+            background: var(--bg-cream);
+        }
+
+        .konfigurator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .config-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .config-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .config-header {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .config-header:hover {
+            background: var(--bg);
+        }
+
+        .config-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .config-header-text {
+            flex: 1;
+        }
+
+        .config-header-text h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .config-header-text p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .config-toggle {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .config-item.active .config-toggle {
+            transform: rotate(180deg);
+        }
+
+        .config-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .config-item.active .config-body {
+            max-height: 1000px;
+        }
+
+        .config-form {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group small {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .checkbox-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .config-price-box {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .config-price-info {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .config-price-info strong {
+            display: block;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-top: 0.25rem;
+        }
+
+        .config-add-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .config-add-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ============ CHECKOUT MODAL ============ */
+        .checkout-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .checkout-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .checkout-content {
+            background: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(30px);
+            transition: transform 0.3s;
+        }
+
+        .checkout-modal.active .checkout-content {
+            transform: translateY(0);
+        }
+
+        .checkout-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkout-header h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+        }
+
+        .checkout-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .checkout-body {
+            padding: 1.5rem;
+        }
+
+        .checkout-section {
+            margin-bottom: 2rem;
+        }
+
+        .checkout-section h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg);
+        }
+
+        .checkout-summary {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 0.9rem;
+        }
+
+        .checkout-summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkout-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .checkout-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        .checkout-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        /* Success State */
+        .checkout-success {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .checkout-success i {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-success h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .checkout-success p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
         /* ============ USP SECTION ============ */
         .usp {
             padding: 6rem 2rem;
@@ -940,6 +1477,10 @@
                 display: block;
             }
 
+            .cart-btn {
+                margin-left: 0.5rem;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -973,6 +1514,61 @@
                 left: 1rem;
                 justify-content: center;
             }
+
+            /* Konfigurator Mobile */
+            .konfigurator {
+                padding: 4rem 1rem;
+            }
+
+            .config-header {
+                padding: 1rem;
+            }
+
+            .config-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .config-header-text h4 {
+                font-size: 1rem;
+            }
+
+            .config-form {
+                padding: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .config-price-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .config-add-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Cart Mobile */
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            /* Checkout Mobile */
+            .checkout-content {
+                border-radius: 20px 20px 0 0;
+                max-height: 95vh;
+                margin-top: auto;
+            }
         }
     </style>
 </head>
@@ -989,10 +1585,16 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#produkte">Produkte</a></li>
+                <li><a href="#konfigurator">Konfigurator</a></li>
                 <li><a href="#ueber-uns">Über uns</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
                 <li><a href="#kontakt" class="nav-cta">Angebot anfragen</a></li>
             </ul>
+            <!-- Warenkorb Icon -->
+            <button class="cart-btn" onclick="toggleCart()" title="Warenkorb">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </button>
             <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
@@ -1133,6 +1735,463 @@
         </div>
     </section>
 
+    <!-- Konfigurator Section -->
+    <section id="konfigurator" class="konfigurator">
+        <div class="konfigurator-container">
+            <div class="section-header">
+                <span class="section-badge">Produktkonfigurator</span>
+                <h2>Ihr Produkt konfigurieren</h2>
+                <p>Wählen Sie Ihre Produktkategorie und konfigurieren Sie nach Ihren Anforderungen.</p>
+            </div>
+
+            <div class="config-accordion">
+                <!-- 1. Exportkisten -->
+                <div class="config-item" data-category="exportkisten">
+                    <div class="config-header" onclick="toggleConfig(this)">
+                        <div class="config-icon"><i class="fas fa-box"></i></div>
+                        <div class="config-header-text">
+                            <h4>Exportkisten & Holzverpackungen</h4>
+                            <p>IPPC-behandelte Kisten für weltweiten Export</p>
+                        </div>
+                        <i class="fas fa-chevron-down config-toggle"></i>
+                    </div>
+                    <div class="config-body">
+                        <form class="config-form" onsubmit="addToCart(event, 'exportkisten')">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Länge (mm) *</label>
+                                    <input type="number" name="laenge" min="100" max="5000" required placeholder="z.B. 1200">
+                                </div>
+                                <div class="form-group">
+                                    <label>Breite (mm) *</label>
+                                    <input type="number" name="breite" min="100" max="3000" required placeholder="z.B. 800">
+                                </div>
+                                <div class="form-group">
+                                    <label>Höhe (mm) *</label>
+                                    <input type="number" name="hoehe" min="100" max="2500" required placeholder="z.B. 600">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Holzart</label>
+                                    <select name="holzart">
+                                        <option value="fichte">Fichte/Tanne (Standard)</option>
+                                        <option value="kiefer">Kiefer</option>
+                                        <option value="sperrholz">Sperrholz</option>
+                                        <option value="osb">OSB-Platten</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Wandstärke</label>
+                                    <select name="wandstaerke">
+                                        <option value="12">12 mm (leicht)</option>
+                                        <option value="18" selected>18 mm (standard)</option>
+                                        <option value="24">24 mm (schwer)</option>
+                                        <option value="27">27 mm (extra stark)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Menge (Stück) *</label>
+                                    <input type="number" name="menge" min="1" value="1" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Zusatzoptionen</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="ippc" checked>
+                                            <span>IPPC-Behandlung</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="deckel">
+                                            <span>Abnehmbarer Deckel</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="kufen">
+                                            <span>Unterlegkufen</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="beschriftung">
+                                            <span>Beschriftung</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Bemerkungen</label>
+                                <textarea name="bemerkungen" rows="2" placeholder="Besondere Anforderungen, Zeichnungsnummer, etc."></textarea>
+                            </div>
+                            <div class="config-price-box">
+                                <div class="config-price-info">
+                                    <span>Preis</span>
+                                    <strong>Individuell auf Anfrage</strong>
+                                </div>
+                                <button type="submit" class="config-add-btn">
+                                    <i class="fas fa-cart-plus"></i>
+                                    In den Warenkorb
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 2. Paletten -->
+                <div class="config-item" data-category="paletten">
+                    <div class="config-header" onclick="toggleConfig(this)">
+                        <div class="config-icon"><i class="fas fa-pallet"></i></div>
+                        <div class="config-header-text">
+                            <h4>Paletten & Europaletten</h4>
+                            <p>Standard- und Sondermaße, neu oder gebraucht</p>
+                        </div>
+                        <i class="fas fa-chevron-down config-toggle"></i>
+                    </div>
+                    <div class="config-body">
+                        <form class="config-form" onsubmit="addToCart(event, 'paletten')">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Palettentyp *</label>
+                                    <select name="typ" required onchange="togglePalettenMasse(this)">
+                                        <option value="euro-neu">EUR-Palette Neu</option>
+                                        <option value="euro-1wahl">EUR-Palette 1. Wahl</option>
+                                        <option value="euro-2wahl">EUR-Palette 2. Wahl</option>
+                                        <option value="euro-3wahl">EUR-Palette 3. Wahl</option>
+                                        <option value="einweg">Einwegpalette</option>
+                                        <option value="sondermass">Sondermaß</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Qualität</label>
+                                    <select name="qualitaet">
+                                        <option value="tauschfaehig">Tauschfähig</option>
+                                        <option value="nicht-tauschfaehig">Nicht tauschfähig</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row sondermass-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label>Länge (mm)</label>
+                                    <input type="number" name="laenge" min="400" max="3000" placeholder="z.B. 1200">
+                                </div>
+                                <div class="form-group">
+                                    <label>Breite (mm)</label>
+                                    <input type="number" name="breite" min="400" max="2000" placeholder="z.B. 800">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tragkraft (kg)</label>
+                                    <input type="number" name="tragkraft" min="500" max="5000" placeholder="z.B. 1500">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Menge (Stück) *</label>
+                                    <input type="number" name="menge" min="1" value="10" required>
+                                    <small>Mindestbestellmenge: 10 Stück</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Zusatzoptionen</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="ippc">
+                                            <span>IPPC-Behandlung</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="stapelbar">
+                                            <span>Stapelbar</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Bemerkungen</label>
+                                <textarea name="bemerkungen" rows="2" placeholder="Besondere Anforderungen..."></textarea>
+                            </div>
+                            <div class="config-price-box">
+                                <div class="config-price-info">
+                                    <span>Preis</span>
+                                    <strong>Individuell auf Anfrage</strong>
+                                </div>
+                                <button type="submit" class="config-add-btn">
+                                    <i class="fas fa-cart-plus"></i>
+                                    In den Warenkorb
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 3. Verschläge -->
+                <div class="config-item" data-category="verschlaege">
+                    <div class="config-header" onclick="toggleConfig(this)">
+                        <div class="config-icon"><i class="fas fa-border-all"></i></div>
+                        <div class="config-header-text">
+                            <h4>Verschläge & Gitterboxen</h4>
+                            <p>Offene Verpackungen nach Maß</p>
+                        </div>
+                        <i class="fas fa-chevron-down config-toggle"></i>
+                    </div>
+                    <div class="config-body">
+                        <form class="config-form" onsubmit="addToCart(event, 'verschlaege')">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Länge (mm) *</label>
+                                    <input type="number" name="laenge" min="100" max="5000" required placeholder="z.B. 1200">
+                                </div>
+                                <div class="form-group">
+                                    <label>Breite (mm) *</label>
+                                    <input type="number" name="breite" min="100" max="3000" required placeholder="z.B. 800">
+                                </div>
+                                <div class="form-group">
+                                    <label>Höhe (mm) *</label>
+                                    <input type="number" name="hoehe" min="100" max="2500" required placeholder="z.B. 1000">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Bauart</label>
+                                    <select name="bauart">
+                                        <option value="lattenverschlag">Lattenverschlag</option>
+                                        <option value="rahmen">Rahmenkonstruktion</option>
+                                        <option value="gitter">Gitterverschlag</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Bodenausführung</label>
+                                    <select name="boden">
+                                        <option value="vollholz">Vollholzboden</option>
+                                        <option value="latten">Lattenboden</option>
+                                        <option value="palette">Auf Palette</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Menge (Stück) *</label>
+                                    <input type="number" name="menge" min="1" value="1" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Zusatzoptionen</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="ippc">
+                                            <span>IPPC-Behandlung</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="stapelecken">
+                                            <span>Stapelecken</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Bemerkungen / Zeichnung</label>
+                                <textarea name="bemerkungen" rows="2" placeholder="Zeichnungsnummer, besondere Anforderungen..."></textarea>
+                            </div>
+                            <div class="config-price-box">
+                                <div class="config-price-info">
+                                    <span>Preis</span>
+                                    <strong>Individuell auf Anfrage</strong>
+                                </div>
+                                <button type="submit" class="config-add-btn">
+                                    <i class="fas fa-cart-plus"></i>
+                                    In den Warenkorb
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 4. Bauholz -->
+                <div class="config-item" data-category="bauholz">
+                    <div class="config-header" onclick="toggleConfig(this)">
+                        <div class="config-icon"><i class="fas fa-tree"></i></div>
+                        <div class="config-header-text">
+                            <h4>Bauholz & Schnittholz</h4>
+                            <p>Kanthölzer, Bretter, Pfosten mit Zuschnitt-Service</p>
+                        </div>
+                        <i class="fas fa-chevron-down config-toggle"></i>
+                    </div>
+                    <div class="config-body">
+                        <form class="config-form" onsubmit="addToCart(event, 'bauholz')">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Produkt *</label>
+                                    <select name="produkt" required>
+                                        <option value="kantholz">Kantholz</option>
+                                        <option value="brett">Bretter</option>
+                                        <option value="bohle">Bohlen</option>
+                                        <option value="latte">Latten</option>
+                                        <option value="pfosten">Pfosten</option>
+                                        <option value="balken">Balken</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Holzart</label>
+                                    <select name="holzart">
+                                        <option value="fichte">Fichte/Tanne</option>
+                                        <option value="kiefer">Kiefer</option>
+                                        <option value="laerche">Lärche</option>
+                                        <option value="eiche">Eiche</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Querschnitt (mm) *</label>
+                                    <input type="text" name="querschnitt" required placeholder="z.B. 60x80 oder 100x100">
+                                    <small>Breite x Höhe</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Länge (mm) *</label>
+                                    <input type="number" name="laenge" min="500" max="6000" required placeholder="z.B. 3000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Menge (Stück) *</label>
+                                    <input type="number" name="menge" min="1" value="1" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Qualität</label>
+                                    <select name="qualitaet">
+                                        <option value="s10">S10 (Standard)</option>
+                                        <option value="s7">S7 (Konstruktion)</option>
+                                        <option value="sichtbar">Sichtqualität</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Zusatzoptionen</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="gehobelt">
+                                            <span>Gehobelt</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="gefast">
+                                            <span>Kanten gefast</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="impragniert">
+                                            <span>Imprägniert</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Bemerkungen</label>
+                                <textarea name="bemerkungen" rows="2" placeholder="Besondere Anforderungen..."></textarea>
+                            </div>
+                            <div class="config-price-box">
+                                <div class="config-price-info">
+                                    <span>Preis</span>
+                                    <strong>Individuell auf Anfrage</strong>
+                                </div>
+                                <button type="submit" class="config-add-btn">
+                                    <i class="fas fa-cart-plus"></i>
+                                    In den Warenkorb
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 5. Hobelware -->
+                <div class="config-item" data-category="hobelware">
+                    <div class="config-header" onclick="toggleConfig(this)">
+                        <div class="config-icon"><i class="fas fa-ruler-combined"></i></div>
+                        <div class="config-header-text">
+                            <h4>Hobelware & Profilholz</h4>
+                            <p>Fasebretter, Rauhspund, Profilbretter</p>
+                        </div>
+                        <i class="fas fa-chevron-down config-toggle"></i>
+                    </div>
+                    <div class="config-body">
+                        <form class="config-form" onsubmit="addToCart(event, 'hobelware')">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Produkt *</label>
+                                    <select name="produkt" required>
+                                        <option value="fasebrett">Fasebrett</option>
+                                        <option value="rauhspund">Rauhspund</option>
+                                        <option value="profilbrett">Profilbrett</option>
+                                        <option value="nut-feder">Nut & Feder</option>
+                                        <option value="schalbretter">Schalbretter</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Holzart</label>
+                                    <select name="holzart">
+                                        <option value="fichte">Fichte/Tanne</option>
+                                        <option value="kiefer">Kiefer</option>
+                                        <option value="laerche">Lärche</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Stärke (mm) *</label>
+                                    <select name="staerke" required>
+                                        <option value="16">16 mm</option>
+                                        <option value="19" selected>19 mm</option>
+                                        <option value="21">21 mm</option>
+                                        <option value="24">24 mm</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Breite (mm) *</label>
+                                    <select name="breite" required>
+                                        <option value="96">96 mm</option>
+                                        <option value="116" selected>116 mm</option>
+                                        <option value="146">146 mm</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Länge (m) *</label>
+                                    <select name="laenge" required>
+                                        <option value="2">2,0 m</option>
+                                        <option value="2.5">2,5 m</option>
+                                        <option value="3">3,0 m</option>
+                                        <option value="4">4,0 m</option>
+                                        <option value="5">5,0 m</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Menge (m²) *</label>
+                                    <input type="number" name="menge" min="1" value="10" required>
+                                    <small>Quadratmeter</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Sortierung</label>
+                                    <select name="sortierung">
+                                        <option value="ab">A/B (wenig Äste)</option>
+                                        <option value="bc" selected>B/C (Standard)</option>
+                                        <option value="cd">C/D (rustikal)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Bemerkungen</label>
+                                <textarea name="bemerkungen" rows="2" placeholder="Besondere Anforderungen..."></textarea>
+                            </div>
+                            <div class="config-price-box">
+                                <div class="config-price-info">
+                                    <span>Preis</span>
+                                    <strong>Individuell auf Anfrage</strong>
+                                </div>
+                                <button type="submit" class="config-add-btn">
+                                    <i class="fas fa-cart-plus"></i>
+                                    In den Warenkorb
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- USP Section -->
     <section id="ueber-uns" class="usp">
         <div class="usp-container">
@@ -1267,6 +2326,122 @@
         </div>
     </footer>
 
+    <!-- Warenkorb Sidebar -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Warenkorb</h3>
+            <button class="cart-close" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty">
+                <i class="fas fa-box-open"></i>
+                <p>Ihr Warenkorb ist leer</p>
+                <p><small>Konfigurieren Sie Produkte und fügen Sie sie hinzu</small></p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="cart-total-label">Artikel im Warenkorb:</span>
+                <span class="cart-total-value" id="cart-total">0</span>
+            </div>
+            <button class="cart-checkout-btn" id="checkout-btn" onclick="openCheckout()" disabled>
+                <i class="fas fa-paper-plane"></i>
+                Unverbindliche Anfrage senden
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3><i class="fas fa-file-invoice"></i> Unverbindliche Anfrage</h3>
+                <button class="checkout-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="checkout-body" id="checkout-body">
+                <form id="checkout-form" onsubmit="submitCheckout(event)">
+                    <div class="checkout-section">
+                        <h4><i class="fas fa-shopping-cart"></i> Ihre Produkte</h4>
+                        <div class="checkout-summary" id="checkout-summary">
+                            <!-- Wird dynamisch gefüllt -->
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h4><i class="fas fa-building"></i> Firmendaten</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Firma *</label>
+                                <input type="text" name="firma" required placeholder="Firmenname">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ansprechpartner *</label>
+                                <input type="text" name="ansprechpartner" required placeholder="Vor- und Nachname">
+                            </div>
+                            <div class="form-group">
+                                <label>Position</label>
+                                <input type="text" name="position" placeholder="z.B. Einkauf">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h4><i class="fas fa-envelope"></i> Kontaktdaten</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>E-Mail *</label>
+                                <input type="email" name="email" required placeholder="ihre@email.de">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefon *</label>
+                                <input type="tel" name="telefon" required placeholder="+49 ...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h4><i class="fas fa-truck"></i> Lieferadresse</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Straße, Nr. *</label>
+                                <input type="text" name="strasse" required placeholder="Musterstraße 123">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>PLZ *</label>
+                                <input type="text" name="plz" required placeholder="12345" pattern="[0-9]{5}">
+                            </div>
+                            <div class="form-group">
+                                <label>Ort *</label>
+                                <input type="text" name="ort" required placeholder="Musterstadt">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h4><i class="fas fa-comment"></i> Nachricht (optional)</h4>
+                        <div class="form-group">
+                            <textarea name="nachricht" rows="3" placeholder="Zusätzliche Informationen, Liefertermin-Wünsche..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="checkout-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Unverbindliche Anfrage senden
+                    </button>
+                    <p class="checkout-note">
+                        <i class="fas fa-lock"></i>
+                        Dies ist eine unverbindliche Anfrage. Wir kontaktieren Sie für ein individuelles Angebot.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Personalized CTA for Herr Geilert -->
     <div class="demo-badge" id="demo-cta">
         <div class="demo-badge-content">
@@ -1286,5 +2461,295 @@
             </div>
         </div>
     </div>
+    <script>
+        // ============ WARENKORB SYSTEM ============
+        let cart = [];
+        const CART_KEY = 'albert-sachse-cart';
+
+        // Cart aus LocalStorage laden
+        function loadCart() {
+            const saved = localStorage.getItem(CART_KEY);
+            if (saved) {
+                cart = JSON.parse(saved);
+                updateCartUI();
+            }
+        }
+
+        // Cart in LocalStorage speichern
+        function saveCart() {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        // Cart UI aktualisieren
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const total = document.getElementById('cart-total');
+            const items = document.getElementById('cart-items');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            badge.textContent = cart.length;
+            badge.style.display = cart.length > 0 ? 'flex' : 'none';
+            total.textContent = cart.length;
+            checkoutBtn.disabled = cart.length === 0;
+
+            if (cart.length === 0) {
+                items.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-box-open"></i>
+                        <p>Ihr Warenkorb ist leer</p>
+                        <p><small>Konfigurieren Sie Produkte und fügen Sie sie hinzu</small></p>
+                    </div>
+                `;
+            } else {
+                items.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <div class="cart-item-header">
+                            <span class="cart-item-title">${item.title}</span>
+                            <button class="cart-item-remove" onclick="removeFromCart(${index})" title="Entfernen">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <div class="cart-item-details">
+                            ${item.details}
+                        </div>
+                        <div class="cart-item-price">Preis auf Anfrage</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Warenkorb Sidebar toggle
+        function toggleCart() {
+            document.getElementById('cart-overlay').classList.toggle('active');
+            document.getElementById('cart-sidebar').classList.toggle('active');
+        }
+
+        // Produkt zum Warenkorb hinzufügen
+        function addToCart(event, category) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Checkboxen sammeln (werden sonst nicht erfasst wenn unchecked)
+            form.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                data[cb.name] = cb.checked;
+            });
+
+            const item = {
+                id: Date.now(),
+                category: category,
+                data: data,
+                title: getCategoryTitle(category),
+                details: formatItemDetails(category, data)
+            };
+
+            cart.push(item);
+            saveCart();
+            updateCartUI();
+
+            // Feedback
+            const btn = form.querySelector('.config-add-btn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Hinzugefügt!';
+            btn.style.background = 'var(--secondary)';
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+            }, 1500);
+
+            // Cart kurz öffnen
+            toggleCart();
+            setTimeout(() => {
+                if (document.getElementById('cart-sidebar').classList.contains('active')) {
+                    // User schaut noch, lassen
+                }
+            }, 3000);
+        }
+
+        // Produkt aus Warenkorb entfernen
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+            updateCartUI();
+        }
+
+        // Kategorie-Titel
+        function getCategoryTitle(category) {
+            const titles = {
+                'exportkisten': 'Exportkiste',
+                'paletten': 'Palette',
+                'verschlaege': 'Verschlag',
+                'bauholz': 'Bauholz',
+                'hobelware': 'Hobelware'
+            };
+            return titles[category] || category;
+        }
+
+        // Details formatieren
+        function formatItemDetails(category, data) {
+            let details = [];
+
+            switch (category) {
+                case 'exportkisten':
+                    details.push(`<span><strong>Maße:</strong> ${data.laenge} x ${data.breite} x ${data.hoehe} mm</span>`);
+                    details.push(`<span><strong>Holzart:</strong> ${data.holzart}, ${data.wandstaerke} mm</span>`);
+                    details.push(`<span><strong>Menge:</strong> ${data.menge} Stück</span>`);
+                    if (data.ippc) details.push(`<span><strong>✓</strong> IPPC-Behandlung</span>`);
+                    if (data.deckel) details.push(`<span><strong>✓</strong> Abnehmbarer Deckel</span>`);
+                    if (data.kufen) details.push(`<span><strong>✓</strong> Unterlegkufen</span>`);
+                    break;
+
+                case 'paletten':
+                    details.push(`<span><strong>Typ:</strong> ${formatPalettenTyp(data.typ)}</span>`);
+                    if (data.typ === 'sondermass' && data.laenge) {
+                        details.push(`<span><strong>Maße:</strong> ${data.laenge} x ${data.breite} mm</span>`);
+                    }
+                    details.push(`<span><strong>Menge:</strong> ${data.menge} Stück</span>`);
+                    if (data.ippc) details.push(`<span><strong>✓</strong> IPPC-Behandlung</span>`);
+                    break;
+
+                case 'verschlaege':
+                    details.push(`<span><strong>Maße:</strong> ${data.laenge} x ${data.breite} x ${data.hoehe} mm</span>`);
+                    details.push(`<span><strong>Bauart:</strong> ${data.bauart}, ${data.boden}</span>`);
+                    details.push(`<span><strong>Menge:</strong> ${data.menge} Stück</span>`);
+                    break;
+
+                case 'bauholz':
+                    details.push(`<span><strong>Produkt:</strong> ${data.produkt}</span>`);
+                    details.push(`<span><strong>Querschnitt:</strong> ${data.querschnitt}, Länge ${data.laenge} mm</span>`);
+                    details.push(`<span><strong>Holzart:</strong> ${data.holzart}, ${data.qualitaet}</span>`);
+                    details.push(`<span><strong>Menge:</strong> ${data.menge} Stück</span>`);
+                    if (data.gehobelt) details.push(`<span><strong>✓</strong> Gehobelt</span>`);
+                    break;
+
+                case 'hobelware':
+                    details.push(`<span><strong>Produkt:</strong> ${data.produkt}</span>`);
+                    details.push(`<span><strong>Maße:</strong> ${data.staerke} x ${data.breite} mm, ${data.laenge} m</span>`);
+                    details.push(`<span><strong>Holzart:</strong> ${data.holzart}, ${data.sortierung}</span>`);
+                    details.push(`<span><strong>Menge:</strong> ${data.menge} m²</span>`);
+                    break;
+            }
+
+            if (data.bemerkungen) {
+                details.push(`<span><strong>Bemerkung:</strong> ${data.bemerkungen}</span>`);
+            }
+
+            return details.join('');
+        }
+
+        function formatPalettenTyp(typ) {
+            const types = {
+                'euro-neu': 'EUR-Palette Neu',
+                'euro-1wahl': 'EUR-Palette 1. Wahl',
+                'euro-2wahl': 'EUR-Palette 2. Wahl',
+                'euro-3wahl': 'EUR-Palette 3. Wahl',
+                'einweg': 'Einwegpalette',
+                'sondermass': 'Sondermaß'
+            };
+            return types[typ] || typ;
+        }
+
+        // ============ KONFIGURATOR ============
+        function toggleConfig(header) {
+            const item = header.parentElement;
+            const wasActive = item.classList.contains('active');
+
+            // Alle schließen
+            document.querySelectorAll('.config-item').forEach(i => {
+                i.classList.remove('active');
+            });
+
+            // Dieses öffnen wenn es nicht schon offen war
+            if (!wasActive) {
+                item.classList.add('active');
+                // Smooth scroll zum Item
+                setTimeout(() => {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        // Paletten Sondermaß Felder toggle
+        function togglePalettenMasse(select) {
+            const sondermassFields = select.closest('form').querySelector('.sondermass-fields');
+            if (select.value === 'sondermass') {
+                sondermassFields.style.display = 'grid';
+            } else {
+                sondermassFields.style.display = 'none';
+            }
+        }
+
+        // ============ CHECKOUT ============
+        function openCheckout() {
+            if (cart.length === 0) return;
+
+            // Summary füllen
+            const summary = document.getElementById('checkout-summary');
+            summary.innerHTML = cart.map(item => `
+                <div class="checkout-summary-item">
+                    <span>${item.title}</span>
+                    <span>${item.data.menge} ${item.category === 'hobelware' ? 'm²' : 'Stk.'}</span>
+                </div>
+            `).join('');
+
+            // Reset form und body
+            document.getElementById('checkout-form').reset();
+            document.getElementById('checkout-body').innerHTML = document.getElementById('checkout-body').innerHTML;
+
+            toggleCart();
+            document.getElementById('checkout-modal').classList.add('active');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.remove('active');
+        }
+
+        function submitCheckout(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const contactData = Object.fromEntries(formData.entries());
+
+            // Demo: Nur UI-Erfolg zeigen (kein echter Backend-Call)
+            const body = document.getElementById('checkout-body');
+            body.innerHTML = `
+                <div class="checkout-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Anfrage erfolgreich gesendet!</h3>
+                    <p>Vielen Dank für Ihre unverbindliche Anfrage. Wir werden Sie schnellstmöglich kontaktieren.</p>
+                    <p><strong>Ihre Referenznummer: ${Date.now().toString(36).toUpperCase()}</strong></p>
+                    <button class="btn btn-primary" onclick="closeCheckout(); cart = []; saveCart(); updateCartUI();">
+                        <i class="fas fa-check"></i> Fertig
+                    </button>
+                </div>
+            `;
+
+            // In echtem System: API-Call zu Backend
+            console.log('Checkout Data:', {
+                contact: contactData,
+                items: cart
+            });
+        }
+
+        // Click außerhalb Modal schließt es
+        document.getElementById('checkout-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeCheckout();
+        });
+
+        // ESC-Taste schließt Modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCheckout();
+                if (document.getElementById('cart-sidebar').classList.contains('active')) {
+                    toggleCart();
+                }
+            }
+        });
+
+        // Init
+        loadCart();
+    </script>
 </body>
 </html>
