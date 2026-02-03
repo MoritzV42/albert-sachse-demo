@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albert Sachse GmbH | Holzverpackungen & Holzhandel seit über 100 Jahren</title>
+    <meta name="description" content="IPPC-zertifizierte Exportkisten, Holzverpackungen und Bauholz. Traditionsunternehmen aus Thüringen mit modernster Trockenkammer-Technologie.">
+    <meta name="keywords" content="Holzkisten, Exportkisten, IPPC, Paletten, Holzhandel, Thüringen, Bauholz, Verpackung">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2D5016;      /* Waldgrün */
+            --primary-dark: #1a3009;
+            --primary-light: #4a7a28;
+            --secondary: #8B4513;    /* Holzbraun */
+            --secondary-light: #A0522D;
+            --accent: #D4A574;       /* Helles Holz */
+            --text: #1a1a1a;
+            --text-light: #555;
+            --bg: #FAFAF8;
+            --bg-cream: #F5F3EF;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ============ NAVIGATION ============ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 8px;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(250,250,248,0.95) 0%, rgba(255,255,255,0.9) 50%, rgba(250,250,248,0.95) 100%),
+                        url('img/bg-left.jpg') left center / auto 100% no-repeat,
+                        url('img/bg-right.jpg') right center / auto 100% no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('img/bg-left.jpg') left center / contain no-repeat,
+                        url('img/bg-right.jpg') right center / contain no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge i {
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s backwards;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(45, 80, 22, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            background: url('img/kisten.jpg') center/cover no-repeat;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(139,69,19,0.3), rgba(45,80,22,0.2));
+        }
+
+        .hero-image::after {
+            content: 'IPPC Zertifiziert';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            animation: floatCard 3s ease-in-out infinite;
+        }
+
+        .floating-card.card-1 {
+            top: 10%;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .floating-card.card-2 {
+            bottom: 20%;
+            left: -40px;
+            animation-delay: 1s;
+        }
+
+        .floating-card.card-3 {
+            bottom: 5%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-card i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card .card-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .floating-card .card-text {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ============ TRUST BAR ============ */
+        .trust-bar {
+            background: var(--primary-dark);
+            padding: 2rem;
+            color: white;
+        }
+
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .trust-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* ============ PRODUCTS SECTION ============ */
+        .products {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--bg-cream);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-image i {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .product-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            color: var(--primary);
+            background: rgba(45, 80, 22, 0.1);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+        }
+
+        .product-feature i {
+            font-size: 0.7rem;
+        }
+
+        /* ============ USP SECTION ============ */
+        .usp {
+            padding: 6rem 2rem;
+            background: var(--bg-cream);
+        }
+
+        .usp-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .usp-content {
+            max-width: 550px;
+        }
+
+        .usp h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .usp-list {
+            list-style: none;
+        }
+
+        .usp-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .usp-list li:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .usp-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .usp-text h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .usp-text p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .usp-visual {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .usp-stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .usp-stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .usp-stat-card:nth-child(2),
+        .usp-stat-card:nth-child(3) {
+            transform: translateY(20px);
+        }
+
+        .usp-stat-card:nth-child(2):hover,
+        .usp-stat-card:nth-child(3):hover {
+            transform: translateY(20px) scale(1.05);
+        }
+
+        .usp-stat-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .usp-stat-card h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .usp-stat-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ============ CONTACT / CTA ============ */
+        .cta {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--bg-cream);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand .logo-text {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ============ PERSONALIZED CTA BADGE ============ */
+        .demo-badge {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+            z-index: 1000;
+            max-width: 320px;
+            animation: slideUp 0.5s ease, pulse 3s infinite 1s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4); }
+            50% { box-shadow: 0 15px 50px rgba(99, 102, 241, 0.6); }
+        }
+
+        .demo-badge-content h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .demo-badge-content p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .usp-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .usp-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .usp-stat-card:nth-child(2),
+            .usp-stat-card:nth-child(3) {
+                transform: none;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .demo-badge {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="img/logo.jpg" alt="Albert Sachse Logo" class="logo-img">
+                <div class="logo-text">
+                    Albert Sachse
+                    <span>HOLZ & VERPACKUNG SEIT 1900</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#produkte">Produkte</a></li>
+                <li><a href="#ueber-uns">Über uns</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#kontakt" class="nav-cta">Angebot anfragen</a></li>
+            </ul>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-certificate"></i>
+                    IPPC-zertifiziert für weltweiten Export
+                </div>
+                <h1>Holzverpackungen mit <span>Tradition</span> und Qualität</h1>
+                <p class="hero-description">
+                    Seit über 100 Jahren fertigen wir maßgeschneiderte Holzkisten, Paletten und Verpackungen
+                    für Unternehmen weltweit. Als zertifizierter Betrieb garantieren wir höchste Qualität
+                    für Ihren Export.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Jahre Erfahrung</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">IPPC</div>
+                        <div class="stat-label">Zertifiziert</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Expressfertigung</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#kontakt" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Kostenlos anfragen
+                    </a>
+                    <a href="#produkte" class="btn btn-secondary">
+                        <i class="fas fa-box-open"></i>
+                        Produkte entdecken
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image"></div>
+                <div class="floating-card card-1">
+                    <i class="fas fa-globe"></i>
+                    <div class="card-title">Weltweit</div>
+                    <div class="card-text">Export-ready</div>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-leaf"></i>
+                    <div class="card-title">Nachhaltig</div>
+                    <div class="card-text">Regionales Holz</div>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-tools"></i>
+                    <div class="card-title">Maßanfertigung</div>
+                    <div class="card-text">Nach Ihren Wünschen</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="trust-container">
+            <div class="trust-item">
+                <i class="fas fa-check-circle"></i>
+                <span>IPPC-Zertifizierung</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-truck"></i>
+                <span>Lieferung deutschlandweit</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-industry"></i>
+                <span>Eigene Produktion in Thüringen</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-handshake"></i>
+                <span>Persönliche Beratung</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="produkte" class="products">
+        <div class="section-header">
+            <span class="section-badge">Unsere Produkte</span>
+            <h2>Qualität aus Thüringen</h2>
+            <p>Von Exportkisten bis Bauholz – wir bieten das komplette Sortiment aus einer Hand.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/kisten.jpg" alt="Exportkisten und Holzverpackungen">
+                    <span class="product-badge">Bestseller</span>
+                </div>
+                <div class="product-content">
+                    <h3>Exportkisten & Verpackungen</h3>
+                    <p>IPPC-behandelte Holzkisten für den sicheren weltweiten Versand Ihrer Waren.</p>
+                    <div class="product-features">
+                        <span class="product-feature"><i class="fas fa-check"></i> IPPC-konform</span>
+                        <span class="product-feature"><i class="fas fa-check"></i> Maßanfertigung</span>
+                        <span class="product-feature"><i class="fas fa-check"></i> Wärmebehandelt</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/paletten.jpg" alt="Holzpaletten und Verschläge">
+                </div>
+                <div class="product-content">
+                    <h3>Paletten & Verschläge</h3>
+                    <p>Stabile Paletten in Standardmaßen oder nach Ihren individuellen Anforderungen.</p>
+                    <div class="product-features">
+                        <span class="product-feature"><i class="fas fa-check"></i> Europaletten</span>
+                        <span class="product-feature"><i class="fas fa-check"></i> Sondermaße</span>
+                        <span class="product-feature"><i class="fas fa-check"></i> Schwerlast</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="img/holzhandel.jpg" alt="Bauholz und Schnittholz">
+                </div>
+                <div class="product-content">
+                    <h3>Bauholz & Schnittholz</h3>
+                    <p>Kanthölzer, Bretter, Pfosten und Hobelware in verschiedenen Qualitäten.</p>
+                    <div class="product-features">
+                        <span class="product-feature"><i class="fas fa-check"></i> Zuschnitt-Service</span>
+                        <span class="product-feature"><i class="fas fa-check"></i> Hobelservice</span>
+                        <span class="product-feature"><i class="fas fa-check"></i> Lagerware</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USP Section -->
+    <section id="ueber-uns" class="usp">
+        <div class="usp-container">
+            <div class="usp-content">
+                <span class="section-badge">Warum wir?</span>
+                <h2>Über 100 Jahre Erfahrung im Holzhandwerk</h2>
+                <ul class="usp-list">
+                    <li>
+                        <div class="usp-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="usp-text">
+                            <h4>IPPC-Zertifizierung</h4>
+                            <p>Autorisiert vom Thüringer Pflanzenschutzamt für den weltweiten Export.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="usp-icon"><i class="fas fa-temperature-high"></i></div>
+                        <div class="usp-text">
+                            <h4>Moderne Trockenkammern</h4>
+                            <p>Professionelle Wärmebehandlung nach internationalen Standards.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="usp-icon"><i class="fas fa-ruler-combined"></i></div>
+                        <div class="usp-text">
+                            <h4>Maßanfertigung</h4>
+                            <p>Jede Kiste wird nach Ihren Zeichnungen oder Maßangaben gefertigt.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="usp-icon"><i class="fas fa-users"></i></div>
+                        <div class="usp-text">
+                            <h4>Persönliche Beratung</h4>
+                            <p>Kompetente Beratung und individuelle Lösungen für Ihre Anforderungen.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="usp-visual">
+                <div class="usp-stat-card">
+                    <i class="fas fa-history"></i>
+                    <h4>1900</h4>
+                    <p>Gründungsjahr</p>
+                </div>
+                <div class="usp-stat-card">
+                    <i class="fas fa-globe-europe"></i>
+                    <h4>Weltweit</h4>
+                    <p>Export-Versand</p>
+                </div>
+                <div class="usp-stat-card">
+                    <i class="fas fa-tools"></i>
+                    <h4>Eigen</h4>
+                    <p>Produktion</p>
+                </div>
+                <div class="usp-stat-card">
+                    <i class="fas fa-tree"></i>
+                    <h4>Regional</h4>
+                    <p>Holzbezug</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="kontakt" class="cta">
+        <div class="cta-container">
+            <h2>Bereit für Ihr Projekt?</h2>
+            <p>Lassen Sie sich unverbindlich beraten und erhalten Sie ein maßgeschneidertes Angebot.</p>
+            <div class="cta-buttons">
+                <a href="mailto:albert-sachse-gmbh@t-online.de" class="btn btn-white">
+                    <i class="fas fa-envelope"></i>
+                    E-Mail schreiben
+                </a>
+                <a href="tel:+4936606842190" class="btn btn-outline">
+                    <i class="fas fa-phone"></i>
+                    Jetzt anrufen
+                </a>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>036606 - 84219</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-fax"></i>
+                    <span>036606 - 63248</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Klosterlausnitzer Str. 35, 07586 Oberndorf</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-text">Albert Sachse GmbH</div>
+                <p>Kisten- & Behälterbau, Holzhandlung. Ihr Partner für hochwertige Holzverpackungen seit über 100 Jahren.</p>
+            </div>
+            <div>
+                <h4 class="footer-heading">Produkte</h4>
+                <ul class="footer-links">
+                    <li><a href="#produkte">Exportkisten</a></li>
+                    <li><a href="#produkte">Paletten</a></li>
+                    <li><a href="#produkte">Bauholz</a></li>
+                    <li><a href="#produkte">Hobelware</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Unternehmen</h4>
+                <ul class="footer-links">
+                    <li><a href="#ueber-uns">Über uns</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Kontakt</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+4936606842190">036606 - 84219</a></li>
+                    <li><a href="mailto:albert-sachse-gmbh@t-online.de">E-Mail senden</a></li>
+                    <li><a href="#">Anfahrt</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Albert Sachse GmbH. Alle Rechte vorbehalten.</p>
+            <p>Demo erstellt von InfinitySpace42</p>
+        </div>
+    </footer>
+
+    <!-- Personalized CTA for Herr Geilert -->
+    <div class="demo-badge" id="demo-cta">
+        <div class="demo-badge-content">
+            <h4>Gefällt Ihnen diese Website, Herr Geilert?</h4>
+            <p>So könnte Ihre neue Online-Präsenz aussehen!</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+                <a href="https://app.reclaim.ai/m/moritz-voigt/flexible-quick-meeting"
+                   target="_blank"
+                   style="background: white; color: #6366f1; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
+                    <i class="fas fa-calendar"></i> Termin vereinbaren
+                </a>
+                <a href="https://wa.me/4915221380878"
+                   target="_blank"
+                   style="background: rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; border: 1px solid rgba(255,255,255,0.3);">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
